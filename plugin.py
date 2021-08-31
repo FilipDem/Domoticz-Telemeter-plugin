@@ -244,7 +244,9 @@ class BasePlugin:
 
     def Handle_Telemeter(self):
         current_period = self.telemeter_data['internetusage'][0]['availableperiods'][0]
-        current_volume = current_period['usages'][0]['totalusage']['wifree'] + current_period['usages'][0]['totalusage']['extendedvolume']
+        current_volume = current_period['usages'][0]['totalusage']['wifree']
+        if 'extendedvolume' in current_period['usages'][0]['totalusage']:
+            current_volume += current_period['usages'][0]['totalusage']['extendedvolume']
         Domoticz.Debug("Current volume: {}".format(current_volume))
         current_volume = current_volume/1048576 #(1024*1024)
         UpdateDevice(_UNIT_USAGE, 0, '%.3f'%current_volume, Images[_IMAGE].ID)
