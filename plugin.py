@@ -251,6 +251,10 @@ class BasePlugin:
             current_volume += current_period['usages'][0]['totalusage']['extendedvolume']
         if 'includedvolume' in current_period['usages'][0]['totalusage']:
             current_volume += current_period['usages'][0]['totalusage']['includedvolume']
+        if 'peak' in current_period['usages'][0]['totalusage']:
+            current_volume += current_period['usages'][0]['totalusage']['peak']
+        if 'offpeak' in current_period['usages'][0]['totalusage']:
+            current_volume += current_period['usages'][0]['totalusage']['offpeak']
         Domoticz.Debug("Current volume: {}".format(current_volume))
         current_volume = current_volume/1048576 #(1024*1024)
         UpdateDevice(_UNIT_USAGE, 0, '%.3f'%current_volume, Images[_IMAGE].ID)
