@@ -15,3 +15,5 @@ Plugin for the support of the Telenet meter (internet consumption - also known a
 Only for Belgian Telenet customers!
 
 The plugin creates a device with consumed bandwith registered by the Telenet provide. Enter your Telenet username and password in the hardware settings and that is it.
+
+The plugin only works when there is only one Telenet subscription (one address). If you have a case with multiple subscriptions (eg internet on different addresses), you need one device per address. This is currently NOT supported. Add simply a request if required (not that difficult to support).
